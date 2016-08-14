@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
-import { addProviders, async, inject } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {addProviders, inject} from "@angular/core/testing";
+import {AppComponent} from "./app.component";
 
 describe('App: PhoteriaProfile', () => {
   beforeEach(() => {
@@ -13,8 +13,5 @@ describe('App: PhoteriaProfile', () => {
       expect(app).toBeTruthy();
     }));
 
-  it('should have as title \'app works!\'',
-    inject([AppComponent], (app: AppComponent) => {
-      expect(app.title).toEqual('app works!');
-    }));
+
 });

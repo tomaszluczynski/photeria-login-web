@@ -1,0 +1,170 @@
+@import 'node_modules/bourbon/app/assets/stylesheets/_bourbon';
+
+// Main Colors
+$accent: null;
+$white: #ffffff;
+$black: #000000;
+$dark-gray: lighten($black, 20%);
+$gray: lighten($black, 40%);
+$light-gray: lighten($black, 60%);
+$lighter-gray: lighten($black, 80%);
+
+// Pen Settings
+$accent: #36bdc6;
+$module-width: 320px;
+
+body {
+  background: url('assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: $gray;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pen Title */
+.pen-title {
+  padding: 30px 0;
+  text-align: center;
+  letter-spacing: 2px;
+  h1 {
+    margin: 0 0 20px;
+    font-size: 48px;
+    font-weight: 300;
+  }
+  span {
+    font-size: 12px;
+    .fa {
+      color: $accent;
+    }
+    a {
+      color: $accent;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+}
+
+form {
+  @include transition(.3s ease);
+}
+
+/* Form Module */
+.form-module {
+  position: relative;
+  background: $white;
+  max-width: $module-width;
+  width: 100%;
+  box-shadow: 0 0 3px rgba($black, .1);
+  margin: 0 auto;
+
+  .form {
+    padding: 30px;
+
+    .social {
+      font-size: 12px;
+      margin-top: 10px;
+      width: 70%;
+      line-height: 4px;
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+
+    .twt {
+      background: #62b6e4;
+    }
+
+    .fb {
+      background: #31488d;
+      margin-top: 15px;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 3px;
+      a {
+        text-decoration: none;
+        color: $gray;
+        font-size: 10px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p.validation {
+      font-size: 12px;
+      color: red;
+    }
+
+    p.urlinfo {
+      margin-top: 20px;
+      font-size: 12px;
+    }
+
+    p.url {
+      font-weight: 700;
+    }
+  }
+  h2 {
+    margin: 0 0 20px;
+    color: $accent;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  input {
+    outline: none;
+    display: block;
+    width: 100%;
+    border: 1px solid darken($white, 15%);
+    margin-top: 10px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-wieght: 400;
+    @include transition(.3s ease);
+    &:focus {
+      border: 1px solid $accent;
+      color: $dark-gray;
+    }
+
+    .invalid {
+      border: 1px solid red;
+    }
+  }
+  button {
+    cursor: pointer;
+    background: $accent;
+    width: 100%;
+    border: 0;
+    padding: 10px 15px;
+    margin-top: 20px;
+    color: $white;
+    font-size: 16px;
+    @include transition(.3s ease);
+    &:hover {
+      background: darken($accent, 15%);
+    }
+  }
+  .cta {
+    background: $accent;
+    width: 100%;
+    box-sizing: border-box;
+    color: $white;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    a {
+      color: $white;
+      display: block;
+      padding: 15px 40px;
+      text-decoration: none;
+    }
+  }
+
+  input.invalid {
+    border: 1px solid red;
+  }
+}

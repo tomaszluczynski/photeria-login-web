@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>PhoteriaProfile</title>
+  <title>photeria</title>
   <base href="/">
 
   {{#unless environment.production}}
@@ -10,11 +10,13 @@
   {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <app-root>Loading...</app-root>
-  
-    {{#each scripts.polyfills}}
+<div class="pen-title"><a href="http://photeria.net"><img src="assets/logo.png"></a></div>
+<app-root></app-root>
+
+{{#each scripts.polyfills}}
     <script src="{{.}}"></script>
     {{/each}}
     <script>
@@ -22,6 +24,6 @@
         System.import('main');
       }).catch(console.error.bind(console));
     </script>
-  
+
 </body>
 </html>

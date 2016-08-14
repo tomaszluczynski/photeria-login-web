@@ -1,0 +1,36 @@
+<div class="module form-module">
+  <div class="form">
+    <h2>Login to your account</h2>
+
+    <form [hidden]="submitted" (ngSubmit)="submit(loginForm.value)" [formGroup]="loginForm">
+
+      <p class="validation">{{responseMessage}}</p>
+
+      <input type="text" placeholder="Username"
+             [formControl]="loginForm.controls['username']"
+             [class.invalid]="fh.isInvalid(loginForm, 'username')"/>
+
+      <p *ngIf="fh.hasError(loginForm, 'required', 'username')" class="validation">username is required</p>
+      <p *ngIf="fh.hasError(loginForm, 'minlength', 'username')" class="validation">minimum 4 characters</p>
+
+      <input type="password" placeholder="Password" name="password"
+             [formControl]="loginForm.controls['password']"
+             [class.invalid]="fh.isInvalid(loginForm, 'password')"/>
+
+      <p *ngIf="fh.hasError(loginForm, 'required', 'password')" class="validation">password is required</p>
+      <p *ngIf="fh.hasError(loginForm, 'minlength', 'password')" class="validation">minimum 8 characters</p>
+
+      <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      <p><a [routerLink]="['/forgot']">Forgot your password?</a></p>
+      <button class="social fb">Login with Facebook</button>
+      <button class="social twt">Login with Twitter</button>
+    </form>
+
+    <div [hidden]="!submitted">
+      logging in
+      {{ loginForm.value | json }}
+    </div>
+  </div>
+
+  <div class="cta"><a class="toggle" [routerLink]="['/register']">NO ACCOUNT YET? SIGN-UP!</a></div>
+</div>

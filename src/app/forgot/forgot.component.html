@@ -1,0 +1,31 @@
+<div class="module form-module">
+  <div class="form">
+    <h2>Forgot password</h2>
+
+    <form [hidden]="submitted" (ngSubmit)="submit(forgotForm.value)" [formGroup]="forgotForm">
+
+      <p class="validation">{{responseMessage}}</p>
+
+      <input type="text" placeholder="Username"
+             [formControl]="forgotForm.controls['username']"
+             [class.invalid]="fh.isInvalid(forgotForm, 'username')"/>
+
+      <p *ngIf="fh.hasError(forgotForm, 'minlength', 'username')" class="validation">minimum 4 characters</p>
+
+      <input type="email" placeholder="Email Address"
+             [formControl]="forgotForm.controls['email']"
+             [class.invalid]="fh.isInvalid(forgotForm, 'email')">
+
+      <p *ngIf="fh.hasError(forgotForm, 'incorrectMailFormat', 'email')" class="validation">email is not correct</p>
+
+      <button type="submit" [disabled]="!forgotForm.valid">Remind password</button>
+    </form>
+
+    <div [hidden]="!submitted">
+      logging in
+      {{ forgotForm.value | json }}
+    </div>
+  </div>
+
+  <div class="cta"><a class="toggle" [routerLink]="['/register']">NO ACCOUNT YET? SIGN-UP!</a></div>
+</div>
